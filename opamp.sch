@@ -143,7 +143,7 @@ ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=20
+nf=1 mult=\{mul5\}
 model=pfet_01v8
 spiceprefix=X
 }
@@ -154,7 +154,7 @@ ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=150
+nf=1 mult=\{mul7\}
 model=pfet_01v8
 spiceprefix=X
 }
@@ -165,7 +165,7 @@ ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=2
+nf=1 mult=\{mul8\}
 model=pfet_01v8
 spiceprefix=X
 }
@@ -200,16 +200,16 @@ C {ipin.sym} 1180 -270 0 0 {name=p3 lab=vin_n}
 C {ipin.sym} 1670 -270 2 0 {name=p4 lab=vin_p}
 C {ipin.sym} 950 -360 0 0 {name=p5 lab=iref}
 C {sky130_fd_pr/nfet_01v8.sym} 1870 -60 0 0 {name=M6
-L=0.15
+L=\{l6\}
 
 ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=90
+nf=1 mult=\{mul6\}
 model=nfet_01v8
 spiceprefix=X
-W=25}
+W=\{w6\}}
 C {lab_wire.sym} 1630 -190 0 0 {name=l3 sig_type=std_logic lab=voe1}
 C {opin.sym} 2030 -240 0 0 {name=p6 lab=vout}
 C {ngspice_get_value.sym} 882.5 -187.5 0 0 {name=r2 node=i(@M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[id])
@@ -280,7 +280,7 @@ spiceprefix=X
 }
 C {capa.sym} 1830 -190 3 0 {name=C1
 m=1
-value=3.1p
+value=\{cap_1\}
 footprint=1206
 device="ceramic capacitor"}
 C {ngspice_get_value.sym} 740 -440 0 0 {name=r1 node=v(@M.X1.XM8.msky130_fd_pr__pfet_01v8[vgs])
@@ -312,7 +312,7 @@ descr="ro= "}
 C {ngspice_get_value.sym} 2070 -30 0 0 {name=r34 node=v(@M.X1.XM6.msky130_fd_pr__nfet_01v8[vgs])
 descr="vgs= "}
 C {res.sym} 1730 -160 0 0 {name=R1
-value=333
+value=\{res_1\}
 footprint=1206
 device=resistor
 m=1}

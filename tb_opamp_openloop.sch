@@ -94,6 +94,9 @@ value="
 .param vcm  = vdd/2
 .param vac  = 60m
 
+.param mul8 = 2
+.param mul5 = 20
+.param mul7 = 150
 .param w857 = 70
 .param l857 = 7
 
@@ -105,9 +108,12 @@ value="
 .param lpar = 0.5
 .param wpar = 10
 
+.param mul6 = 90
+.param l6   = 0.15
+.param w6   = 25
 
-
-
+.param res_1 = 333
+.param cap_1 = 3.1p
 
 .options TEMP = 125
 
