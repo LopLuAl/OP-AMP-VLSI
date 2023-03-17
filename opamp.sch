@@ -35,6 +35,8 @@ T {Common Source Amplifier
 } 1990 -180 0 0 0.4 0.4 {}
 T {Condicion Saturado VDS>VDSAT
 Condicion triodo   VDS<VDSAT} 1580 110 0 0 0.4 0.4 {}
+T {Ro goal: 333 ohm} 1670 -320 0 0 0.4 0.4 {}
+T {M9} 1760 -350 0 0 0.4 0.4 {}
 N 1290 -35 1290 40 { lab=vss}
 N 1570 -35 1570 40 { lab=vss}
 N 1290 40 1357.5 40 { lab=vss}
@@ -80,7 +82,6 @@ N 1152.5 -440 1275 -440 { lab=iref}
 N 1330 -65 1530 -65 { lab=vbn}
 N 1050 -410 1050 -360 { lab=iref}
 N 1180 -270 1250 -270 { lab=vin_n}
-N 1650 -460 1650 -440 { lab=vss}
 N 1860 -190 1890 -190 { lab=vout}
 N 950 -500 970 -500 { lab=vdd}
 N 950 40 1210 40 { lab=vss}
@@ -98,22 +99,26 @@ N 1890 -240 2030 -240 { lab=vout}
 N 1890 -30 1890 40 { lab=vss}
 N 1570 -190 1670 -190 {
 lab=voe1}
-N 1730 -190 1790 -190 {
-lab=#net1}
-N 1730 -130 1730 -60 {
-lab=voe1}
-N 1650 -460 1700 -460 {
-lab=vss}
-N 1700 -460 1700 -360 {
-lab=vss}
-N 1650 -360 1700 -360 {
-lab=vss}
-N 1620 -400 1680 -400 {
-lab=vss}
-N 1650 -400 1650 -320 {
-lab=vss}
 N 1790 -190 1800 -190 {
 lab=#net1}
+N 1750 -190 1750 -180 {
+lab=vss}
+N 1780 -190 1790 -190 {
+lab=#net1}
+N 1670 -190 1720 -190 {
+lab=voe1}
+N 1750 -240 1750 -230 {
+lab=vdd}
+N 2140 -370 2140 -310 {
+lab=vdd}
+N 2140 -500 2140 -370 {
+lab=vdd}
+N 1960 -500 2140 -500 {
+lab=vdd}
+N 1750 -150 1750 -110 {
+lab=vss}
+N 1750 -180 1750 -150 {
+lab=vss}
 C {sky130_fd_pr/nfet_01v8.sym} 1310 -65 0 1 {name=M3
 L=\{L34\}
 W=\{W34\}
@@ -181,18 +186,18 @@ C {lab_wire.sym} 1442.5 40 0 0 {name=l7 sig_type=std_logic lab=vss
 C {lab_wire.sym} 1977.5 -240 0 0 {name=l8 sig_type=std_logic lab=vout
 }
 C {lab_wire.sym} 1450 -65 0 0 {name=l6 sig_type=std_logic lab=vbn}
-C {sky130_fd_pr/nfet_01v8.sym} 1650 -420 1 0 {name=M9
-L=0.15
-W=1
+C {sky130_fd_pr/nfet_01v8.sym} 1750 -210 1 0 {name=M9
+L=\{l9\}
+W=\{w9\}
 ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=1
+nf=1 mult=\{mul9\}
 model=nfet_01v8
 spiceprefix=X
 }
-C {lab_pin.sym} 1650 -320 2 0 {name=l10 sig_type=std_logic lab=vss
+C {lab_pin.sym} 1750 -240 1 0 {name=l10 sig_type=std_logic lab=vdd
 }
 C {iopin.sym} 950 -500 2 0 {name=p1 lab=vdd}
 C {iopin.sym} 950 40 2 0 {name=p2 lab=vss}
@@ -234,7 +239,7 @@ C {ngspice_get_value.sym} 740 -520 0 0 {name=r14 node=i(@M.X1.XM8.msky130_fd_pr_
 descr="I= "}
 C {ngspice_get_value.sym} 882.5 -147.5 0 0 {name=r15 node=@M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[gm]
 descr="gm= "}
-C {launcher.sym} 647.5 240 0 0 {name=h1
+C {launcher.sym} 2207.5 -230 0 0 {name=h1
 descr=Annotate 
 tclcommand="ngspice::annotate"}
 C {ngspice_get_value.sym} 1012.5 -147.5 0 0 {name=r16 node=@M.X1.XM2.msky130_fd_pr__pfet_01v8_lvt[gm]
@@ -249,7 +254,7 @@ C {ngspice_get_value.sym} 1420 -620 0 0 {name=r21 node=@M.X1.XM5.msky130_fd_pr__
 descr="gm= "}
 C {ngspice_get_value.sym} 740 -480 0 0 {name=r22 node=@M.X1.XM8.msky130_fd_pr__pfet_01v8[gm]
 descr="gm= "}
-C {ngspice_probe.sym} 1750 -190 0 0 {name=r25}
+C {ngspice_probe.sym} 1790 -190 0 0 {name=r25}
 C {sky130_fd_pr/pfet_01v8_lvt.sym} 1270 -270 0 0 {name=M1
 L=\{lpar\}
 W=\{wpar\}
@@ -311,7 +316,7 @@ C {ngspice_get_expr.sym} 882.5 -107.5 0 0 {name=r33 node="[format %.4g [expr 1 /
 descr="ro= "}
 C {ngspice_get_value.sym} 2070 -30 0 0 {name=r34 node=v(@M.X1.XM6.msky130_fd_pr__nfet_01v8[vgs])
 descr="vgs= "}
-C {res.sym} 1730 -160 0 0 {name=R1
+C {res.sym} 2140 -340 0 0 {name=R1
 value=\{res_1\}
 footprint=1206
 device=resistor
@@ -327,3 +332,11 @@ C {ngspice_get_value.sym} 1460 300 0 0 {name=r39 node=V(@M.X1.XM4.msky130_fd_pr_
 descr="Vdsat= "}
 C {ngspice_get_value.sym} 1330 300 0 0 {name=r40 node=V(@M.X1.XM3.msky130_fd_pr__nfet_01v8[vdsat])
 descr="Vdsat= "}
+C {ngspice_get_expr.sym} 1770 -240 0 0 {name=r41 node="[format %.4g [expr 1 / [ngspice::get_node \{@M.$\{path\}XM9.msky130_fd_pr__nfet_01v8[gds]\}] ] ]"
+descr="ro= "}
+C {lab_pin.sym} 1750 -110 2 0 {name=l9 sig_type=std_logic lab=vss
+}
+C {ngspice_get_value.sym} 2070 -70 0 0 {name=r42 node=i(@M.X1.XM6.msky130_fd_pr__nfet_01v8[id])
+descr="I= "}
+C {ngspice_get_value.sym} 1790 -140 0 0 {name=r43 node=i(@M.X1.XM9.msky130_fd_pr__nfet_01v8[id])
+descr="I= "}

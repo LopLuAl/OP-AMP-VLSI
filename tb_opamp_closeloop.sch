@@ -76,8 +76,8 @@ value="
 
 
 * Circuit Parameters
-.param iref = 95u
-.param vdd  = 1.62
+.param iref = 100u
+.param vdd  = 1.8
 .param vss  = 0.0
 .param vcm  = vdd/2
 .param vac  = 60m
@@ -100,13 +100,17 @@ value="
 .param l6   = 0.15
 .param w6   = 25
 
-.param res_1 = 333
-.param cap_1 = 3.1p
+.param mul9 = 1
+.param l9   = 0.15
+.param w9   = 10
 
-.options TEMP = 125
+.param res_1 = 333
+.param cap_1 = 5p
+
+.options TEMP = 65
 
 * Include Models
-.lib ~/skywater/skywater-pdk/libraries/sky130_fd_pr_ngspice/latest/models/corners/sky130.lib SS
+.lib ~/skywater/skywater-pdk/libraries/sky130_fd_pr_ngspice/latest/models/corners/sky130.lib TT
 
 * OP Parameters & Singals to save
 .save all
@@ -211,4 +215,6 @@ C {lab_wire.sym} 840 -360 0 0 {name=l7 sig_type=std_logic lab=vin_signal}
 C {opamp.sym} 1230 -340 0 0 {name=x1}
 C {lab_pin.sym} 1230 -430 2 0 {name=l1 sig_type=std_logic lab=vdd}
 C {lab_pin.sym} 1250 -270 2 0 {name=l8 sig_type=std_logic lab=vss}
-C {ngspice_probe.sym} 1230 -410 0 0 {name=r1}
+C {launcher.sym} 1307.5 -130 0 0 {name=h1
+descr=Annotate 
+tclcommand="ngspice::annotate"}

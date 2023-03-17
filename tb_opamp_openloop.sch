@@ -88,8 +88,8 @@ value="
 
 
 * Circuit Parameters
-.param iref = 95u
-.param vdd  = 1.62
+.param iref = 100u
+.param vdd  = 1.8
 .param vss  = 0.0
 .param vcm  = vdd/2
 .param vac  = 60m
@@ -112,16 +112,21 @@ value="
 .param l6   = 0.15
 .param w6   = 25
 
-.param res_1 = 333
-.param cap_1 = 3.1p
+.param mul9 = 1
+.param l9   = 0.15
+.param w9   = 10
 
-.options TEMP = 125
+.param res_1 = 333
+.param cap_1 = 5p
+
+.options TEMP = 65
 
 * Include Models
-.lib ~/skywater/skywater-pdk/libraries/sky130_fd_pr_ngspice/latest/models/corners/sky130.lib SS
+.lib ~/skywater/skywater-pdk/libraries/sky130_fd_pr_ngspice/latest/models/corners/sky130.lib TT
 
 * OP Parameters & Singals to save
 .save all
++ @M.X1.XM9.msky130_fd_pr__nfet_01v8[gds]
 + @M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[id] @M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[vth] @M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[vgs] @M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[vds] @M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[vdsat] @M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[gm] @M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[gds]
 + @M.X1.XM2.msky130_fd_pr__pfet_01v8_lvt[id] @M.X1.XM2.msky130_fd_pr__pfet_01v8_lvt[vth] @M.X1.XM2.msky130_fd_pr__pfet_01v8_lvt[vgs] @M.X1.XM2.msky130_fd_pr__pfet_01v8_lvt[vds] @M.X1.XM2.msky130_fd_pr__pfet_01v8_lvt[vdsat] @M.X1.XM2.msky130_fd_pr__pfet_01v8_lvt[gm] @M.X1.XM2.msky130_fd_pr__pfet_01v8_lvt[gds]
 + @M.X1.XM3.msky130_fd_pr__nfet_01v8[id] @M.X1.XM3.msky130_fd_pr__nfet_01v8[vth] @M.X1.XM3.msky130_fd_pr__nfet_01v8[vgs] @M.X1.XM3.msky130_fd_pr__nfet_01v8[vds] @M.X1.XM3.msky130_fd_pr__nfet_01v8[vdsat] @M.X1.XM3.msky130_fd_pr__nfet_01v8[gm] @M.X1.XM3.msky130_fd_pr__nfet_01v8[gds]
@@ -161,7 +166,7 @@ value="
   write tb_opamp_openloop.raw
 
 .endc
-
+.probe I(x1,vdd)
 .end
 "}
 C {capa.sym} 1780 -360 0 0 {name=C1
