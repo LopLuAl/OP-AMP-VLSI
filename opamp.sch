@@ -321,7 +321,7 @@ value=\{res_1\}
 footprint=1206
 device=resistor
 m=1}
-C {ngspice_get_value.sym} 2070 120 0 0 {name=r35 node=@M.X1.XM6.msky130_fd_pr__nfet_01v8[cgg]
+C {ngspice_get_value.sym} 2070 100 0 0 {name=r35 node=@M.X1.XM6.msky130_fd_pr__nfet_01v8[cgg]
 descr="cgg= "}
 C {ngspice_get_value.sym} 885 -67.5 0 0 {name=r36 node=@M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[cgg]
 descr="cgg= "}
@@ -340,3 +340,33 @@ C {ngspice_get_value.sym} 2070 -70 0 0 {name=r42 node=i(@M.X1.XM6.msky130_fd_pr_
 descr="I= "}
 C {ngspice_get_value.sym} 1790 -140 0 0 {name=r43 node=i(@M.X1.XM9.msky130_fd_pr__nfet_01v8[id])
 descr="I= "}
+C {ngspice_get_value.sym} 880 -30 0 0 {name=r44 node=v(@M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[vgs])
+descr="vgs= "}
+C {ngspice_get_value.sym} 1010 -30 0 0 {name=r45 node=v(@M.X1.XM2.msky130_fd_pr__pfet_01v8_lvt[vgs])
+descr="vgs= "}
+C {ngspice_get_value.sym} 1010 10 0 0 {name=r46 node=V(@M.X1.XM2.msky130_fd_pr__pfet_01v8_lvt[vdsat])
+descr="Vdsat= "}
+C {ngspice_get_value.sym} 880 20 0 0 {name=r47 node=V(@M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[vdsat])
+descr="Vdsat= "}
+C {ngspice_get_value.sym} 1420 -540 0 0 {name=r48 node=v(@M.X1.XM5.msky130_fd_pr__pfet_01v8[vdsat])
+descr="vsat= "}
+C {ngspice_get_value.sym} 1640 -540 0 0 {name=r49 node=v(@M.X1.XM7.msky130_fd_pr__pfet_01v8[vdsat])
+descr="vsat= "}
+C {ngspice_get_value.sym} 2070 140 0 0 {name=r50 node=v(@M.X1.XM6.msky130_fd_pr__nfet_01v8[vdsat])
+descr="vsat= "}
+C {ngspice_get_value.sym} 740 -310 0 0 {name=r51 node=v(@M.X1.XM8.msky130_fd_pr__pfet_01v8[vds])
+descr="vds= "}
+C {ngspice_get_value.sym} 1420 -510 0 0 {name=r52 node=v(@M.X1.XM5.msky130_fd_pr__pfet_01v8[vds])
+descr="vds= "}
+C {ngspice_get_value.sym} 1630 -510 0 0 {name=r53 node=v(@M.X1.XM7.msky130_fd_pr__pfet_01v8[vds])
+descr="vds= "}
+C {ngspice_get_value.sym} 2070 170 0 0 {name=r54 node=v(@M.X1.XM6.msky130_fd_pr__nfet_01v8[vds])
+descr="vds= "}
+C {ngspice_get_value.sym} 1460 340 0 0 {name=r55 node=v(@M.X1.XM4.msky130_fd_pr__nfet_01v8[vds])
+descr="vds= "}
+C {ngspice_get_value.sym} 1330 340 0 0 {name=r56 node=v(@M.X1.XM3.msky130_fd_pr__nfet_01v8[vds])
+descr="vds= "}
+C {ngspice_get_value.sym} 1010 50 0 0 {name=r57 node=v(@M.X1.XM2.msky130_fd_pr__pfet_01v8_lvt[vds])
+descr="vds= "}
+C {ngspice_get_value.sym} 880 60 0 0 {name=r58 node=v(@M.X1.XM1.msky130_fd_pr__pfet_01v8_lvt[vds])
+descr="vds= "}

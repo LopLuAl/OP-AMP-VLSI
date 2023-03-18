@@ -37,6 +37,8 @@ N 1230 -440 1230 -390 {
 lab=vdd}
 N 1250 -300 1250 -250 {
 lab=vss}
+N 1230 -460 1230 -440 {
+lab=vdd}
 C {vsource.sym} 600 -200 0 0 {name=V1 value=DC\{vss\}}
 C {vsource.sym} 700 -200 0 0 {name=V2 value=DC\{vdd\}}
 C {gnd.sym} 600 -130 0 0 {name=l14 lab=GND}
@@ -136,6 +138,8 @@ value="
 *
 *Simulation
 .control
+  set color1 = purple
+  set color0 = white
   ac dec 100 1k 10G
   setplot ac1
   meas ac GBW when vdb(vout)=0
@@ -213,7 +217,7 @@ C {vsource.sym} 1110 -220 0 0 {name=V5 value=DC\{vcm\}}
 C {lab_wire.sym} 1110 -360 0 0 {name=l6 sig_type=std_logic lab=vin}
 C {lab_wire.sym} 840 -360 0 0 {name=l7 sig_type=std_logic lab=vin_signal}
 C {opamp.sym} 1230 -340 0 0 {name=x1}
-C {lab_pin.sym} 1230 -430 2 0 {name=l1 sig_type=std_logic lab=vdd}
+C {lab_pin.sym} 1230 -460 2 0 {name=l1 sig_type=std_logic lab=vdd}
 C {lab_pin.sym} 1250 -270 2 0 {name=l8 sig_type=std_logic lab=vss}
 C {launcher.sym} 1307.5 -130 0 0 {name=h1
 descr=Annotate 
