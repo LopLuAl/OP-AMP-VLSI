@@ -78,8 +78,8 @@ value="
 
 
 * Circuit Parameters
-.param iref = 100u
-.param vdd  = 1.8
+.param iref = 105u
+.param vdd  = 1.98
 .param vss  = 0.0
 .param vcm  = vdd/2
 .param vac  = 60m
@@ -109,10 +109,10 @@ value="
 .param res_1 = 333
 .param cap_1 = 5p
 
-.options TEMP = 65
+.options TEMP = 0
 
 * Include Models
-.lib ~/skywater/skywater-pdk/libraries/sky130_fd_pr_ngspice/latest/models/corners/sky130.lib TT
+.lib ~/skywater/skywater-pdk/libraries/sky130_fd_pr_ngspice/latest/models/corners/sky130.lib FF
 
 * OP Parameters & Singals to save
 .save all
@@ -151,40 +151,40 @@ value="
   setplot tran1
   plot v(vsen) v(vout)
 
-  *reset    
-  *noise v(vout) V4 dec 100 1k 10G 1
-  *setplot noise1
-  *plot inoise_spectrum onoise_spectrum
-  *plot onoise_spectrum onoise_spectrum
-  *setplot noise2
-  *print inoise_total
-  *print onoise_total
-  *print onoise_total.m.x1.xm1.msky130_fd_pr__pfet_01v8_lvt.1overf
-  *print onoise_total.m.x1.xm1.msky130_fd_pr__pfet_01v8_lvt.id
-  *print onoise_total.m.x1.xm2.msky130_fd_pr__pfet_01v8_lvt.1overf
-  *print onoise_total.m.x1.xm2.msky130_fd_pr__pfet_01v8_lvt.id
-  *print onoise_total.m.x1.xm3.msky130_fd_pr__nfet_01v8.1overf
-  *print onoise_total.m.x1.xm3.msky130_fd_pr__nfet_01v8.id
-  *print onoise_total.m.x1.xm4.msky130_fd_pr__nfet_01v8.1overf
-  *print onoise_total.m.x1.xm4.msky130_fd_pr__nfet_01v8.id
-  *print onoise_total.m.x1.xm5.msky130_fd_pr__pfet_01v8.1overf
-  *print onoise_total.m.x1.xm5.msky130_fd_pr__pfet_01v8.id
-  *print onoise_total.m.x1.xm6.msky130_fd_pr__nfet_01v8.1overf
-  *print onoise_total.m.x1.xm6.msky130_fd_pr__nfet_01v8.id
-  *print onoise_total.m.x1.xm7.msky130_fd_pr__pfet_01v8.1overf
-  *print onoise_total.m.x1.xm7.msky130_fd_pr__pfet_01v8.id
-  *print onoise_total.m.x1.xm8.msky130_fd_pr__pfet_01v8.1overf
-  *print onoise_total.m.x1.xm8.msky130_fd_pr__pfet_01v8.id
-  *set filetype=ascii
-  *write tpfinal_noise.raw
   reset    
-  set sqrnoise                          
   noise v(vout) V4 dec 100 1k 10G 1
   setplot noise1
-  plot onoise_spectrum
-  plot sqrt(integ(onoise_spectrum))      
-  let onoise_total_integrado = maximum(sqrt(integ(onoise_spectrum)))  
-  print onoise_total_integrado
+  plot inoise_spectrum onoise_spectrum
+  plot onoise_spectrum onoise_spectrum
+  setplot noise2
+  print inoise_total
+  print onoise_total
+  print onoise_total.m.x1.xm1.msky130_fd_pr__pfet_01v8_lvt.1overf
+  print onoise_total.m.x1.xm1.msky130_fd_pr__pfet_01v8_lvt.id
+  print onoise_total.m.x1.xm2.msky130_fd_pr__pfet_01v8_lvt.1overf
+  print onoise_total.m.x1.xm2.msky130_fd_pr__pfet_01v8_lvt.id
+  print onoise_total.m.x1.xm3.msky130_fd_pr__nfet_01v8.1overf
+  print onoise_total.m.x1.xm3.msky130_fd_pr__nfet_01v8.id
+  print onoise_total.m.x1.xm4.msky130_fd_pr__nfet_01v8.1overf
+  print onoise_total.m.x1.xm4.msky130_fd_pr__nfet_01v8.id
+  print onoise_total.m.x1.xm5.msky130_fd_pr__pfet_01v8.1overf
+  print onoise_total.m.x1.xm5.msky130_fd_pr__pfet_01v8.id
+  print onoise_total.m.x1.xm6.msky130_fd_pr__nfet_01v8.1overf
+  print onoise_total.m.x1.xm6.msky130_fd_pr__nfet_01v8.id
+  print onoise_total.m.x1.xm7.msky130_fd_pr__pfet_01v8.1overf
+  print onoise_total.m.x1.xm7.msky130_fd_pr__pfet_01v8.id
+  print onoise_total.m.x1.xm8.msky130_fd_pr__pfet_01v8.1overf
+  print onoise_total.m.x1.xm8.msky130_fd_pr__pfet_01v8.id
+  set filetype=ascii
+  write tpfinal_noise.raw
+  *reset    
+  *set sqrnoise                          
+  *noise v(vout) V4 dec 100 1k 10G 1
+  *setplot noise1
+  *plot onoise_spectrum
+  *plot sqrt(integ(onoise_spectrum))      
+  *let onoise_total_integrado = maximum(sqrt(integ(onoise_spectrum)))  
+  *print onoise_total_integrado
   
   reset
   tran 0.01u 11u

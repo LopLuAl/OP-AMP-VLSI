@@ -78,12 +78,37 @@ value="
 .param iref = 100u
 .param vdd  = 1.8
 .param vss  = 0.0
-.param vcm  = 0.9
+.param vcm  = vdd/2
 .param vac  = 10m
-.param vstep = 10m
+.param vstep = 60m
 .param T = 20u
 
-.options TEMP = 65.0
+.options TEMP = 65
+
+.param mul8 = 2
+.param mul5 = 20
+.param mul7 = 150
+.param w857 = 70
+.param l857 = 7
+
+.param l34  = 3
+.param w34  = 60
+.param mul34 = 2
+
+.param mpar = 333
+.param lpar = 0.5
+.param wpar = 10
+
+.param mul6 = 90
+.param l6   = 0.15
+.param w6   = 25
+
+.param mul9 = 1
+.param l9   = 0.15
+.param w9   = 10
+
+.param res_1 = 333
+.param cap_1 = 5p
 
 * Include Models
 .lib ~/skywater/skywater-pdk/libraries/sky130_fd_pr_ngspice/latest/models/corners/sky130.lib TT
@@ -93,6 +118,7 @@ value="
 
 *Simulations
 .control
+  set color0 = grey
   tran 0.01u 20u
   setplot tran1
   plot v(vstep) v(vin_signal) v(vout)
